@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="generic_server_down">服务器太忙或网络延迟</string>
+    <string name="generic_error">服务器响应错误</string>
+    <string name="no_internet">服务器宕机或当前网络不可用</string>
+</resources>

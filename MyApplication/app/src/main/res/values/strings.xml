@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">揽件管理</string>
+    <string name="action_settings">设置</string>
+    <string name="temp">...</string>
+    <string name="main_title">能容无线终端</string>
+    <string name="open">开启</string>
+    <string name="close">关闭</string>
+    <string name="tips_missing_tts_error">语音数据丢失或不支持!</string>
+    <string name="main_tab_fcb">分仓宝</string>
+    <string name="get_pieces">格口号扫描</string>
+    <string name="hint_lattice_num">格口号</string>
+    <string name="big_package">大包号</string>
+    <string name="error_please_scan_latticeNum">错误，请扫描格口号</string>
+    <string name="please_scan_latticeNum">请扫描格口号</string>
+    <string name="scan_bigPackage">请扫描大包号</string>
+</resources>

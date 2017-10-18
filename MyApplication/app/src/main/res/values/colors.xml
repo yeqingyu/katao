@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#333</color>
+    <color name="colorPrimaryDark">#333</color>
+    <color name="colorAccent">@android:color/white</color>
+
+    <color name="color_grey">#333</color>
+    <color name="main_content_bg">#F0F2F5</color>
+
+    <color name="light_text">#888</color>
+    <color name="dark_text">#363c44</color>
+
+    <array name="progress_colors">
+        <item>#1e88e5</item>
+        <item>#e53935</item>
+        <item>#fb8c00</item>
+        <item>#43a047</item>
+    </array>
+
+    <color name="text_color">#e53935</color>
+
+    <color name="backgroup_press">#1e88e5</color>
+    <color name="backgroup_normal">@android:color/white</color>
+    <color name="shadow_dark">#50000000</color>
+</resources>

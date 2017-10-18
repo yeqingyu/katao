@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="newStatus">
+        <item>新建</item>
+        <item>部分收货未上架</item>
+        <item>部分收货部分上架</item>
+        <item>部分收货完全上架</item>
+    </string-array>
+</resources>

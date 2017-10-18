@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_content_bg">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/ToolbarTheme"
+        app:title="揽件管理" />
+
+    <LinearLayout
+        android:id="@+id/top_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_full">
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/lattice_num"
+            style="@style/Login_EditText_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_lattice_num"
+            app:met_baseColor="@color/dark_text"
+            app:met_floatingLabelText="@string/hint_lattice_num"
+            app:met_floatingLabelTextColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_textColorHint="@color/color_grey" />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/big_package"
+            style="@style/Login_EditText_Style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_half"
+            android:hint="@string/big_package"
+            app:met_baseColor="@color/dark_text"
+            app:met_floatingLabelText="@string/big_package"
+            app:met_floatingLabelTextColor="@color/colorPrimary"
+            app:met_primaryColor="@color/colorPrimary"
+            app:met_textColorHint="@color/color_grey" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_regist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:text="绑定"
+        android:textColor="#000000"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>

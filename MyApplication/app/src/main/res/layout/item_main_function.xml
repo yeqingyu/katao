@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rey.material.widget.Button xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/btn"
+    style="@style/GridRowItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_row_height"
+    android:background="@color/md_red_A200"
+    android:text="..." />
