@@ -78,7 +78,6 @@ public class RequestHelper {
         doCancelRequest(url);
         Request<JSONObject> request = new NormalPostRequest(
                 url, listener, errorListener, params);
-        Log.w("kim",request.toString());
         request.setTag(url);
         request.setRetryPolicy(new DefaultRetryPolicy(5 * 1000, 0, 1.0f));
         mRequestQueue.add(request);

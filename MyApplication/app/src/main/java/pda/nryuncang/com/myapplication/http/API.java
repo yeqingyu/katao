@@ -1,5 +1,9 @@
 package pda.nryuncang.com.myapplication.http;
 
+import android.content.Context;
+
+import pda.nryuncang.com.myapplication.utils.PreferencesUtils;
+
 /**
  * 接口相关定义
  * Created by Wilk on 2015/6/23.
@@ -15,8 +19,8 @@ public class API {
     //public static final String NORMAL_URL = "http://192.168.0.100/Service.svc/Tasks/";
 //    public static final String NORMAL_URL = "http://192.168.92.253/Service.svc/Tasks/";
     /**
-    * 永康
-    */
+     * 永康
+     */
 //    public static final String NORMAL_URL = "http://192.168.16.20/Service.svc/Tasks/";
 
     /**
@@ -36,11 +40,13 @@ public class API {
     /**
      * 请求url拼接后缀
      */
-    public static final String IP_URL = "http://%s/wms/phone/";
+    public static final String IP_URL = "http://%s/Service.svc/Tasks/";
     /**
      * 请求url前缀
      */
     public static String BASE_URL = NORMAL_URL;
+
+
 
     /**
      * 获得请求登录的url
@@ -51,22 +57,21 @@ public class API {
 //        return BASE_URL + "ajaxLogin";
 //    }
 
-    public static String getPiecesManagerUrl(){
+    public static String getPiecesManagerUrl() {
         return BASE_URL + "UpdatePortPackage";
     }
 
-    public static String getLoginUrl(){
+    public static String getLoginUrl() {
         return BASE_URL + "Login";
     }
 
-    public static String getPiecesManagerUserUrl(){
+    public static String getPiecesManagerUserUrl() {
         return BASE_URL + "UpdatePortPackageUser";
     }
 
 //    public static String getPiecesManagerUrl() {
 //        return BASE_URL + "ajaxPickTaskList";
 //    }
-
 
 
 }

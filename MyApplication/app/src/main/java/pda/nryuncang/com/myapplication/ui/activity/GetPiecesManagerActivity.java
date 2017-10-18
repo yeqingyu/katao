@@ -96,7 +96,7 @@ public class GetPiecesManagerActivity extends BaseActivity {
                                                 return true;
                                             }
                                             return false;
-          cd                              }
+                                       }
                                     }
 
         );

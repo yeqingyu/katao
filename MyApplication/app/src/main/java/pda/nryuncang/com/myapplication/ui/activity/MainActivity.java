@@ -14,11 +14,17 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -26,9 +32,12 @@ import java.util.Locale;
 import pda.nryuncang.com.myapplication.R;
 import pda.nryuncang.com.myapplication.constant.BaseConstant;
 import pda.nryuncang.com.myapplication.constant.PreferencesConstant;
+import pda.nryuncang.com.myapplication.http.API;
 import pda.nryuncang.com.myapplication.ui.adapter.FCBAdapter;
 import pda.nryuncang.com.myapplication.ui.adapter.MainPagerAdapter;
 import pda.nryuncang.com.myapplication.utils.PreferencesUtils;
+
+import static android.R.drawable.ic_menu_slideshow;
 
 /**
  * 主页
@@ -60,9 +69,21 @@ public class MainActivity extends BaseActivity implements TextToSpeech.OnInitLis
     protected void initUI() {
         setContentView(R.layout.activity_main);
         mToolbar = (Toolbar) this.findViewById(R.id.toolbar);
+        TextView tv= (TextView) this.findViewById(R.id.btnRight);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showIpDialog();
+            }
+        });
         mViewPager = (ViewPager) this.findViewById(R.id.viewpager);
-        setSupportActionBar(mToolbar);
 
+        setSupportActionBar(mToolbar);
+        if (TextUtils.isEmpty(PreferencesUtils.getString(this, "IP_CONFIG"))) {
+            showIpDialog();
+        } else {
+            API.BASE_URL = String.format(API.IP_URL, PreferencesUtils.getString(this, "IP_CONFIG"));
+        }
         try {
             TextView view = (TextView) mDrawerLayout.getRootView().findViewById(R.id.name);
             view.setText(PreferencesUtils.getString(MainActivity.this,
@@ -195,5 +216,38 @@ public class MainActivity extends BaseActivity implements TextToSpeech.OnInitLis
     }
 
 
-
+    private void showIpDialog() {
+        final EditText et = new EditText(getApplicationContext());
+        et.setTextColor(R.color.color_grey);
+        if(!TextUtils.isEmpty(PreferencesUtils.getString(MainActivity.this, "IP_CONFIG"))){
+            et.setText(PreferencesUtils.getString(MainActivity.this, "IP_CONFIG"));
+        }
+        final AlertDialog mDialog = new AlertDialog.Builder(this).
+                setIcon(android.R.drawable.ic_dialog_info).
+                setTitle("请设置IP").
+                setView(et).
+                setPositiveButton("确定", null).
+                setCancelable(false)
+                .create();
+        mDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button positionButton = mDialog.getButton(AlertDialog.BUTTON_POSITIVE);
+                positionButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String input = et.getText().toString();
+                        if (input.equals("")) {
+                            Toast.makeText(getApplicationContext(), "IP不能为空！" + input, Toast.LENGTH_LONG).show();
+                        } else {
+                            PreferencesUtils.putString(MainActivity.this, "IP_CONFIG", input);
+                            API.BASE_URL = String.format(API.IP_URL, input);
+                            mDialog.dismiss();
+                        }
+                    }
+                });
+            }
+        });
+        mDialog.show();
+    }
 }
